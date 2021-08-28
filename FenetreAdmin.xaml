@@ -1,0 +1,145 @@
+﻿<Window x:Name="FenetreAdmin1" x:Class="NorthernLightsHospital.FenetreAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NorthernLightsHospital"
+        mc:Ignorable="d"
+        Title="Fenêtre Administrateur" Height="450" Width="800" ResizeMode="CanMinimize" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Activated="FenetreAdmin1_Activated">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792">
+            <TabItem x:Name="tabGestionMedecin" Header="Gestion Médecin" FontFamily="Tahoma">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="dataMedecin" HorizontalAlignment="Left" Height="242" Margin="22,31,0,0" VerticalAlignment="Top" Width="735" AutoGenerateColumns="False" ItemsSource="{Binding}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IDMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom" Binding="{Binding NomMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Prénom" Binding="{Binding PrenomMedecin, Mode=OneWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btnAjouterMedecin" Cursor="Hand" Content="Ajouter Médecin" HorizontalAlignment="Left" Margin="22,288,0,0" VerticalAlignment="Top" Width="150" Click="btnAjouterMedecin_Click"/>
+                    <Button x:Name="btnModifierMedecin" Cursor="Hand" Content="Modifier Médecin" HorizontalAlignment="Left" Margin="218,288,0,0" VerticalAlignment="Top" Width="150" Click="btnModifierMedecin_Click"/>
+                    <Button x:Name="btnSupprimerMedecin" Cursor="Hand" Content="Supprimer Médecin" HorizontalAlignment="Left" Margin="412,288,0,0" VerticalAlignment="Top" Width="150" Click="btnSupprimerMedecin_Click"/>
+                    <Button x:Name="btnDeconnection" Cursor="Hand" Content="Déconnection" HorizontalAlignment="Left" Margin="607,288,0,0" VerticalAlignment="Top" Width="150" Click="btnDeconnection_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabTableauConsultation" Header="Tableau Consultation" FontFamily="Tahoma">
+                <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" Width="786" Height="391" VerticalAlignment="Top">
+                    <DataGrid x:Name="dataGridPatientListe" Visibility="Hidden" HorizontalAlignment="Left" Height="293" Margin="10,88,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}" VerticalAlignment="Top" Width="766">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="# Ass. Social" Binding="{Binding NSS, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Date Naissance" Binding="{Binding DateNaissance, Mode=OneWay, StringFormat=d}" />
+                            <DataGridTextColumn Header="Nom Patient" Binding="{Binding Nom, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Prénom Patient" Binding="{Binding Prenom, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Ville" Binding="{Binding Ville, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Province" Binding="{Binding Province, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Code Postal" Binding="{Binding CodePostal, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Téléphone" Binding="{Binding telephone, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Assureur" Binding="{Binding NomCompagnie, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom Médecin" Binding="{Binding NomMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Prénom Médecin" Binding="{Binding PrenomMedecin, Mode=OneWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="dataGridPatientHospitalise" Visibility="Hidden" HorizontalAlignment="Left" Height="293" Margin="10,88,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}" VerticalAlignment="Top" Width="766">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="# Ass. Social" Binding="{Binding NSS, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Date Naissance" Binding="{Binding DateNaissance, Mode=OneWay, StringFormat=d}" />
+                            <DataGridTextColumn Header="Nom" Binding="{Binding Nom, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Ville" Binding="{Binding Ville, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Province" Binding="{Binding Province, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Code Postal" Binding="{Binding CodePostal, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Téléphone" Binding="{Binding telephone, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Assureur" Binding="{Binding NomCompagnie, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom Médecin" Binding="{Binding NomMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Prénom Médecin" Binding="{Binding PrenomMedecin, Mode=OneWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid x:Name="dataGridMedecinListe" Visibility="Hidden" HorizontalAlignment="Left" Height="293" Margin="10,88,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}" VerticalAlignment="Top" Width="766">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID Médecin" Binding="{Binding IDMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom Médecin" Binding="{Binding NomMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Prénom Médecin" Binding="{Binding PrenomMedecin, Mode=OneWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid x:Name="dataGridLitListe" Visibility="Hidden" HorizontalAlignment="Left" Height="293" Margin="10,88,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}" VerticalAlignment="Top" Width="766">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="# Lit" Binding="{Binding NumeroLit, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Occupé" Binding="{Binding Occupe, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Type de lit" Binding="{Binding description, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Département" Binding="{Binding NomDepartement, Mode=OneWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid x:Name="dataGridAssuranceListe" Visibility="Hidden" HorizontalAlignment="Left" Height="293" Margin="10,88,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}" VerticalAlignment="Top" Width="766">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID Assureure" Binding="{Binding IDAssurance, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom Assureure" Binding="{Binding NomCompagnie, Mode=OneWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid x:Name="dataGridDepartementListe" Visibility="Hidden" HorizontalAlignment="Left" Height="293" Margin="10,88,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}" VerticalAlignment="Top" Width="766">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID Département" Binding="{Binding IDDepartement, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom Département" Binding="{Binding NomDepartement, Mode=OneWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                    <DataGrid x:Name="dataGridAdmissionListe" Visibility="Hidden" HorizontalAlignment="Left" Height="293" Margin="10,88,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}" VerticalAlignment="Top" Width="766">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID Admission" Binding="{Binding IDAdmission, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom Patient" Binding="{Binding Nom, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Prénom Patient" Binding="{Binding Prenom, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Chirurgie" Binding="{Binding chirurgieProgramme, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Date Chirurgie" Binding="{Binding DateChirurgie, Mode=OneWay, StringFormat=d}" />
+                            <DataGridTextColumn Header="Date Admission" Binding="{Binding DateAdmission, Mode=OneWay, StringFormat=d}" />
+                            <DataGridTextColumn Header="Date Congé" Binding="{Binding DateConge, Mode=OneWay, StringFormat=d}" />
+                            <DataGridTextColumn Header="Congé" Binding="{Binding Televiseur, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Téléphone" Binding="{Binding Telephone, Mode=OneWay}" />
+                            <DataGridTextColumn Header="# Assurance Social" Binding="{Binding NSS, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom Département" Binding="{Binding NomDepartement, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Numéro Lit" Binding="{Binding NumeroLit, Mode=OneWay}" />
+                            <DataGridTextColumn Header="ID Médecin" Binding="{Binding IDMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Nom Médecin" Binding="{Binding NomMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Prénom Médecin" Binding="{Binding PrenomMedecin, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Tarif Quotidien Lit" Binding="{Binding TarifLitQuotidien, Mode=OneWay, StringFormat='{}{0:c}'}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <ComboBox x:Name="cboxRapportPatient" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboxRapportPatient_SelectionChanged">
+                        <ComboBoxItem Content="Liste des patients"/>
+                        <ComboBoxItem Content="Liste des patients hospitalisés"/>
+                    </ComboBox>
+                    <Label x:Name="lblRapportPatient" Content="Rapport Patient" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cboxRapportMedecin" HorizontalAlignment="Left" Margin="135,49,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboxRapportMedecin_SelectionChanged">
+                        <ComboBoxItem Content="Liste des médecins"/>
+                    </ComboBox>
+                    <Label x:Name="lblRapportMedecin" Content="Rapport Médecin" HorizontalAlignment="Left" Margin="135,20,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cboxRapportLit" HorizontalAlignment="Left" Margin="260,49,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboxRapportLit_SelectionChanged">
+                        <ComboBoxItem Content="Liste des lits"/>
+                    </ComboBox>
+                    <Label x:Name="lblRapportLit" Content="Rapport Lit" HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cboxRapportAssurance" HorizontalAlignment="Left" Margin="385,49,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboxRapportAssurance_SelectionChanged">
+                        <ComboBoxItem Content="Liste des assureurs"/>
+                    </ComboBox>
+                    <Label x:Name="lblRapportAssurance" Content="Rapport Assurance" HorizontalAlignment="Left" Margin="385,20,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cboxRapportDepartement" HorizontalAlignment="Left" Margin="510,49,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboxRapportDepartement_SelectionChanged">
+                        <ComboBoxItem Content="Liste des départements"/>
+                    </ComboBox>
+                    <Label x:Name="lblRapportDepartement" Content="Rapport Département" HorizontalAlignment="Left" Margin="510,20,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cboxRapportAdmission" HorizontalAlignment="Left" Margin="635,49,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboxRapportAdmission_SelectionChanged">
+                        <ComboBoxItem Content="Historique des admissions"/>
+                        <ComboBoxItem Content="Historique des admission pour chirurgie"/>
+                    </ComboBox>
+                    <Label x:Name="lblRapportAdmission" Content="Rapport Admission" HorizontalAlignment="Left" Margin="635,20,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

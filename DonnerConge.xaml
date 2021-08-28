@@ -1,0 +1,30 @@
+﻿<Window x:Name="FenetreConge" x:Class="NorthernLightsHospital.DonnerConge"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NorthernLightsHospital"
+        mc:Ignorable="d"
+        Title="Fenêtre congé patient" Height="398" Width="1026" WindowStartupLocation="CenterScreen" Loaded="FenetreConge_Loaded">
+    <Grid>
+        <DataGrid x:Name="dataPatients" HorizontalAlignment="Left" Margin="19,22,0,0" Width="969" AutoGenerateColumns="False" ItemsSource="{Binding}" Height="270" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="# Ass. Social" Binding="{Binding NSS, Mode=OneWay}" />
+                <DataGridTextColumn Header="Date Naissance" Binding="{Binding DateNaissance, Mode=OneWay, StringFormat=d}" />
+                <DataGridTextColumn Header="Date Admission" Binding="{Binding DateAdmission, Mode=OneWay, StringFormat=d}" />
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom, Mode=OneWay}" />
+                <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom, Mode=OneWay}" />
+                <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse, Mode=OneWay}" />
+                <DataGridTextColumn Header="Ville" Binding="{Binding Ville, Mode=OneWay}" />
+                <DataGridTextColumn Header="Province" Binding="{Binding Province, Mode=OneWay}" />
+                <DataGridTextColumn Header="Code Postal" Binding="{Binding CodePostal, Mode=OneWay}" />
+                <DataGridTextColumn Header="Téléphone" Binding="{Binding telephone, Mode=OneWay}" />
+                <DataGridTextColumn Header="Assureur" Binding="{Binding NomCompagnie, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnDonnerConge" Content="Donner congé au patient" HorizontalAlignment="Left" Margin="666,318,0,0" VerticalAlignment="Top" Width="150" Height="25" Click="btnDonnerConge_Click"/>
+        <Button x:Name="btnDeconnecter" Content="Déconnecter" HorizontalAlignment="Left" Margin="838,318,0,0" VerticalAlignment="Top" Width="150" Height="25" Click="btnDeconnecter_Click"/>
+        <DatePicker x:Name="dateDateConge" HorizontalAlignment="Left" Margin="493,318,0,0" VerticalAlignment="Top" Height="25" Width="150"/>
+        <Label x:Name="lblDateConge" Content="Date du congé prévu :" HorizontalAlignment="Left" Margin="366,318,0,0" VerticalAlignment="Top" Height="25"/>
+    </Grid>
+</Window>

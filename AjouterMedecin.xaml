@@ -1,0 +1,20 @@
+﻿<Window x:Name="AjouterMedecin1" x:Class="NorthernLightsHospital.AjouterMedecin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NorthernLightsHospital"
+        mc:Ignorable="d"
+        Title="Ajouter Medecin" ResizeMode="CanMinimize" Height="323" Width="274" WindowStartupLocation="CenterScreen" Loaded="AjouterMedecin1_Loaded">
+    <Grid>
+        <Label x:Name="lblNom" Content="Nom Médecin" HorizontalAlignment="Left" Margin="22,90,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <Label x:Name="lblPrenom" Content="Prénom Médecin" HorizontalAlignment="Left" Margin="22,152,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="23" Margin="22,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Tahoma" GotFocus="txtGotFocus"/>
+        <TextBox x:Name="txtPrenom" HorizontalAlignment="Left" Height="23" Margin="22,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Tahoma" GotFocus="txtGotFocus"/>
+        <Label x:Name="lblID" Content="ID Médecin" HorizontalAlignment="Left" Margin="22,23,0,0" VerticalAlignment="Top" FontFamily="Tahoma"/>
+        <TextBox x:Name="txtIDMedecin" Cursor="No" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="22,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Tahoma" Background="#FFE8E8E8"/>
+        <Button x:Name="btnAjouter" Cursor="Hand" Content="Ajouter" HorizontalAlignment="Left" Margin="22,239,0,0" VerticalAlignment="Top" Width="100" Click="btnAjouter_Click"/>
+        <Button x:Name="btnAnnuler" Cursor="Hand" Content="Annuler" HorizontalAlignment="Left" Margin="142,239,0,0" VerticalAlignment="Top" Width="100" Click="btnAnnuler_Click"/>
+
+    </Grid>
+</Window>
